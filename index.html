@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O Enigma do Tesouro Pirata</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Vídeo de fundo -->
+    <video id="background-video" autoplay muted loop>
+      <source src="assets/background.mp4" type="video/mp4" />
+      Seu navegador não suporta vídeos HTML5.
+    </video>
+
+    <!-- Overlay escuro para melhor legibilidade -->
+    <div class="video-overlay"></div>
+
+    <!-- Container principal posicionado à esquerda -->
+    <div class="main-container">
+      <header class="challenge-header">
+        <h1>🏴‍☠️ Tesouro Pirata 💰</h1>
+      </header>
+
+      <section class="challenge-description">
+        <p class="intro-text">
+          Ahoy, jovem programador! Você acabou de embarcar em uma aventura épica pelos mares digitais!
+        </p>
+        <p class="mission-text">
+          <strong>Sua missão:</strong> desvendar o enigma que levará até o mítico Tesouro do Capitão Barba Azul.
+        </p>
+        <div class="clue-box">
+          <p class="clue-title">🗝️ A Dica:</p>
+          <p class="clue-text">
+            "O tesouro está na posição "X", onde x é o termo principal da sequência numérica descrita pelo pirata
+            maluco, onde deve-se somar os números ímpares até atingir o maior total menor ou igual a 1000."
+          </p>
+        </div>
+      </section>
+
+      <!-- Área dos botões -->
+      <section class="buttons-section">
+        <button class="pirate-button decifrar-btn" style="--clr: #ffd700" tabindex="1">
+          <span>DECIFRAR</span>
+          <i></i>
+        </button>
+        <button class="pirate-button retornar-btn" style="--clr: #ffd700" tabindex="2">
+          <span>RETORNAR</span>
+          <i></i>
+        </button>
+      </section>
+
+      <!-- Seção de resultado -->
+      <section class="result-section" id="result-section">
+        <h3 class="result-title">⚓ Resultado da Decifração</h3>
+        <div class="calculation-details" id="calculation-details"></div>
+        <div class="final-result" id="final-result"></div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

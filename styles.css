@@ -1,0 +1,360 @@
+/* Reset e configurações básicas */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  background: #27272c;
+  color: #fff;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Vídeo de fundo */
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* Removido completamente o overlay com opacidade */
+.video-overlay {
+  display: none;
+}
+
+/* Container principal posicionado à esquerda */
+.main-container {
+  position: fixed;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 500px;
+  max-width: calc(100vw - 4rem);
+  background: rgba(39, 40, 34, 0.95);
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  max-height: 90vh; /* Limita a altura máxima */
+  overflow-y: auto; /* Adiciona rolagem vertical quando necessário */
+}
+
+/* Header */
+.challenge-header h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #ffd700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Alternativa: Se quiser manter o gradiente apenas no texto, sem os emojis */
+.challenge-header h1 .gradient-text {
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Descrição do desafio */
+.challenge-description {
+  margin-bottom: 2rem;
+}
+
+.intro-text,
+.mission-text {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.mission-text strong {
+  color: #ffd700;
+}
+
+.clue-box {
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid #ffd700;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.clue-title {
+  font-size: 1.1rem;
+  color: #ffd700;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+
+.clue-text {
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* Seção dos botões */
+.buttons-section {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: space-between;
+}
+
+/* Estilo dos botões piratas */
+.pirate-button {
+  position: relative;
+  background: #444;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  transition: 0.2s;
+  cursor: pointer;
+  flex: 1;
+  border-radius: 4px;
+}
+
+.pirate-button:hover {
+  letter-spacing: 0.2rem;
+  padding: 1.1rem 2.1rem;
+  background: var(--clr);
+  color: var(--clr);
+  animation: box 3s infinite;
+}
+
+.pirate-button::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: #272822;
+  border-radius: 2px;
+}
+
+.pirate-button span {
+  position: relative;
+  z-index: 1;
+}
+
+.pirate-button i {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.pirate-button i::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  left: 80%;
+  top: -2px;
+  border: 2px solid var(--clr);
+  background: #272822;
+  transition: 0.2s;
+}
+
+.pirate-button:hover i::before {
+  width: 15px;
+  left: 20%;
+  animation: move 3s infinite;
+}
+
+.pirate-button i::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  left: 20%;
+  bottom: -2px;
+  border: 2px solid var(--clr);
+  background: #272822;
+  transition: 0.2s;
+}
+
+.pirate-button:hover i::after {
+  width: 15px;
+  left: 80%;
+  animation: move 3s infinite;
+}
+
+.pirate-button:focus {
+  outline: 2px solid var(--clr);
+  outline-offset: 2px;
+}
+
+/* Animações dos botões */
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes box {
+  0% {
+    box-shadow: #27272c;
+  }
+  50% {
+    box-shadow: 0 0 25px var(--clr);
+  }
+  100% {
+    box-shadow: #27272c;
+  }
+}
+
+/* Seção de resultado */
+.result-section {
+  display: none;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid #ffffff33;
+}
+
+.result-section.show {
+  display: block;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.result-title {
+  color: #ffd700;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.calculation-details {
+  background: rgb(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-family: 'Courier New', monospace;
+  border-left: 4px solid #ffd700;
+}
+
+.calculation-step {
+  margin-bottom: 0.5rem;
+  color: #e0e0e0;
+}
+
+.calculation-step.highlight {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.final-result {
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  color: #000;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.final-result .treasure-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Animação de fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .main-container {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: calc(100vw - 2rem);
+    margin: 1rem auto;
+    padding: 2rem;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+  }
+
+  .challenge-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .buttons-section {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .pirate-button {
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  .pirate-button:hover {
+    padding: 1.3rem 2.1rem;
+  }
+
+  .clue-box {
+    padding: 1.2rem;
+  }
+
+  .calculation-details {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    width: calc(100vw - 1rem);
+    margin: 0.5rem auto;
+    padding: 1.5rem;
+  }
+
+  .challenge-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .intro-text,
+  .mission-text,
+  .clue-text {
+    font-size: 0.9rem;
+  }
+
+  .pirate-button {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .calculation-details {
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+}
