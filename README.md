@@ -115,8 +115,11 @@ Próximo seria 63: 961+63 = 1024 (excede 1000)
 
 Fork o projeto
 Crie uma branch para sua feature ( ``git checkout -b feature/AmazingFeature ``)
+
 Commit suas mudanças ( `` git commit -m 'Add some AmazingFeature' ``)
+
 Push para a branch ( ``git push origin feature/AmazingFeature ``)
+
 Abra um Pull Request
 
 ## 📝 Licença
